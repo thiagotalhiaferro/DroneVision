@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DroneVision</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>DroneVision</h1>
+            <p>Análise inteligente de imagens com Azure AI Vision</p>
+        </header>
+
+        <section class="upload-card">
+            <h2>Enviar imagem para análise</h2>
+            <form method="POST" enctype="multipart/form-data">
+                <input type="file" name="imagem" accept="image/*" required>
+                <button type="submit">Analisar imagem</button>
+            </form>
+            <p class="hint">Formatos: JPG, PNG, GIF ou BMP. Limite: 5 MB.</p>
+        </section>
+
+        {% if erro %}
+        <section class="error">
+            <h3>Não foi possível realizar a análise</h3>
+            <p>{{ erro }}</p>
+        </section>
+        {% endif %}
+
+        {% if resultado %}
+        <section class="result-card">
+            <h2>Resultado da análise</h2>
+
+            <div class="result-section">
+                <h3>Descrição da imagem</h3>
+                <p>{{ resultado.descricao }}</p>
+            </div>
+
+            <div class="result-section">
+                <h3>Etiquetas identificadas</h3>
+                {% if resultado.tags %}
+                    <div class="tags">
+                        {% for tag in resultado.tags %}
+                            <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p>Nenhuma etiqueta identificada.</p>
+                {% endif %}
+            </div>
+
+            <div class="result-section">
+                <h3>Objetos identificados</h3>
+                {% if resultado.objetos %}
+                    <div class="tags">
+                        {% for objeto in resultado.objetos %}
+                            <span class="tag object">{{ objeto }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p>Nenhum objeto identificado.</p>
+                {% endif %}
+            </div>
+        </section>
+        {% endif %}
+
+        <footer>
+            <p>Projeto acadêmico GS — DroneVision | Azure AI Vision</p>
+        </footer>
+    </main>
+</body>
+</html>
