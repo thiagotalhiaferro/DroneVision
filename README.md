@@ -5,7 +5,7 @@ Aplicação web de análise de imagens utilizando Azure AI Vision
 
 ## 1. Sobre o projeto
 
-O **DroneVision** é uma aplicação web desenvolvida como projeto acadêmico da Global Solution (GS), com o objetivo de realizar análises inteligentes de imagens utilizando serviços de Inteligência Artificial da Microsoft Azure.
+O **DroneVision** é uma aplicação web desenvolvida como projeto acadêmico da Global Solution, com o objetivo de realizar análises inteligentes de imagens utilizando serviços de Inteligência Artificial da Microsoft Azure.
 
 A solução permite que o usuário envie uma imagem pela interface web e receba automaticamente informações identificadas pelo serviço Azure AI Vision.
 
@@ -36,7 +36,7 @@ Demonstrar a aplicação de recursos de visão computacional em uma solução ho
 
 1. O usuário acessa a aplicação web.
 2. Seleciona e envia uma imagem.
-3. A aplicação Flask recebe o arquivo.
+3. A aplicação recebe o arquivo.
 4. A imagem é encaminhada ao Azure AI Vision por meio de uma requisição HTTP.
 5. O serviço processa a imagem e retorna os resultados.
 6. A aplicação apresenta a descrição, as etiquetas e os objetos identificados.
